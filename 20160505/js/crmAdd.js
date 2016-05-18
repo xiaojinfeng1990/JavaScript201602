@@ -4,11 +4,11 @@ String.prototype.myTrim = function myTrim() {
 var userSubmit = document.getElementById("userSubmit");
 var userName = document.getElementById("userName"), userAge = document.getElementById("userAge"), userPhone = document.getElementById("userPhone"), userAddress = document.getElementById("userAddress");
 
-//->首先获取当前页面URL地址栏后面的参数值 ->根据传递的参数当前页面是修改还是增加
+//->棣栧厛鑾峰彇褰撳墠椤甸潰URL鍦板潃鏍忓悗闈㈢殑鍙傛暟鍊� ->鏍规嵁浼犻�掔殑鍙傛暟褰撳墠椤甸潰鏄慨鏀硅繕鏄鍔�
 var obj = queryURLParameter(window.location.href);
 var flag = "id" in obj ? "update" : "add";
 
-//->如果是修改的话,我们需要把原来的数据获取出来,放到对应的文本框中
+//->濡傛灉鏄慨鏀圭殑璇�,鎴戜滑闇�瑕佹妸鍘熸潵鐨勬暟鎹幏鍙栧嚭鏉�,鏀惧埌瀵瑰簲鐨勬枃鏈涓�
 if (flag === "update") {
     ajax("/detailInfo?" + encodeURIComponent("id=" + obj.id), function (data) {
         userName.value = data["name"];
@@ -25,25 +25,25 @@ userSubmit.onclick = function () {
     }
     parameter = encodeURIComponent(parameter);
     
-    //->增加:把页面中的每一个文本框中的内容都获取到,调取Ajax传递给服务器,实现增加功能
+    //->澧炲姞:鎶婇〉闈腑鐨勬瘡涓�涓枃鏈涓殑鍐呭閮借幏鍙栧埌,璋冨彇Ajax浼犻�掔粰鏈嶅姟鍣�,瀹炵幇澧炲姞鍔熻兘
     if (flag === "add") {
         ajax("/addInfo?" + parameter, function (data) {
             if (data && data["code"] == 0) {
-                window.location.href = "index.html";//->实现页面的跳转
+                window.location.href = "index.html";//->瀹炵幇椤甸潰鐨勮烦杞�
                 return;
             }
-            alert("信息创建失败~");
+            alert("淇℃伅鍒涘缓澶辫触~");
         });
         return;
     }
 
-    //->当前的操作是修改
+    //->褰撳墠鐨勬搷浣滄槸淇敼
     ajax("/updateInfo?" + parameter, function (data) {
         if (data && data["code"] == 0) {
             window.location.href = "index.html";
             return;
         }
-        alert("信息修改失败~");
+        alert("淇℃伅淇敼澶辫触~");
     });
 };
 

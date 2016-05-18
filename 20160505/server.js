@@ -14,6 +14,7 @@ var server = http.createServer(function (req, res) {
     //->解析客户端发送请求的这个地址
     var urlObj = url.parse(req.url);
     var pathname = urlObj.pathname, query = utils.queryURLParameter(decodeURIComponent(urlObj.query));
+
     //->我们使用url.parse最后一个参数传递的是true,会自动把传递进来的参数进行解析,但是获取到的对象不支持hasOwnProperty这个方法,所以我们自己写一个方法实现即可
 
     //->前端路由判断:HTML/JS/CSS文件读取,并且返回给客户端进行解析
