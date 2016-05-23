@@ -28,6 +28,7 @@ if (winW / winH <= desW / desH) {
 }
 
 [].forEach.call(oLis, function () {
+    console.log(arguments);
     var oLi = arguments[0];
     oLi.index = arguments[1];
     oLi.addEventListener("touchstart", start, false);
@@ -52,7 +53,7 @@ function move(e) {
         }
         arguments[0].className = "";//把所有li的类名清空
         arguments[0].firstElementChild.id = "";//滑动时把li下的第一个子元素的id名清空
-    })//除了自己其他的li全部隐藏
+    });2//除了自己其他的li全部隐藏
     if (movePos > 0) {/*下滑*/
         this.prevsIndex = index == oLis.length - 1 ? 0 : index + 1;
         var duration = -winH + movePos;//winH是自己随便设置的,可以写480都行

@@ -33,38 +33,38 @@
         }
 
         .move {
-            -webkit-animation: moveFir 1s linear 0s 1;
-            animation: moveFir 1s linear 0s 1;
+            -webkit-animation: moveFir 5s linear 0s 1;
+            animation: moveFir 5s linear 0s 1;
             /*animation动画中,我们虽然看到元素在运动,但是其实元素的位置没有发生任何的变化,只是相当于按照轨迹播放了一遍,这样就导致动画结束,元素还是会回到起始的位置*/
 
             /*解决这个问题:设置动画结束后停留在最后一帧的位置*/
-            -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
+            -webkit-animation-fill-mode:both;
+            animation-fill-mode:both;
         }
+
+        /*@-webkit-keyframes moveFir {*/
+            /*from {*/
+                /*-webkit-transform:scale(1) rotate(0deg);*/
+                /*transform:scale(1) rotate(0deg);*/
+            /*}*/
+            /*to {*/
+                /*-webkit-transform:scale(2) rotate(360deg);*/
+                /*transform:scale(2) rotate(360deg);*/
+            /*}*/
+        /*}*/
+
+        /*@keyframes moveFir {*/
+            /*from {*/
+                /*-webkit-transform:scale(1) rotate(0deg);*/
+                /*transform:scale(1) rotate(0deg);*/
+            /*}*/
+            /*to {*/
+                /*-webkit-transform:scale(2) rotate(360deg);*/
+                /*transform:scale(2) rotate(360deg);*/
+            /*}*/
+        /*}*/
 
         @-webkit-keyframes moveFir {
-            from {
-                -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-            }
-            to {
-                -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes moveFir {
-            from {
-                -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-            }
-            to {
-                -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
-
-        /*@-webkit-keyframes moveFir {
             0%, 50%, 100% {
                 -webkit-transform: scale(1) rotate(0deg);
                 transform: scale(1) rotate(0deg);
@@ -84,7 +84,7 @@
                 -webkit-transform: scale(2) rotate(180deg);
                 transform: scale(2) rotate(180deg);
             }
-        }*/
+        }
 
         /*@-webkit-keyframes moveFir {
             from {
@@ -97,7 +97,7 @@
     </style>
 </head>
 <body>
-<div id="div1"></div>
+<div id="div1">5</div>
 
 <script type="text/javascript">
     var oDiv = document.getElementById("div1");
@@ -106,7 +106,7 @@
 
         window.setTimeout(function () {
             this.className = null;
-        }.bind(oDiv), 1000);
+        }.bind(oDiv), 8000);
     }, false);
 </script>
 </body>

@@ -24,6 +24,7 @@ if(winW/winH <= desW/desH){
 }
 
 [].forEach.call(oLis,function(){
+
   var oLi = arguments[0];
  oLi.index = arguments[1];
  oLi.addEventListener("touchstart",start,false);

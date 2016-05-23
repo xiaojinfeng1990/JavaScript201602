@@ -46,6 +46,7 @@
     main.addEventListener("touchend",end,false);
     function start(e){
         //console.log(e.changedTouches[0].pageX)
+        console.log(e);
         this.startY = e.changedTouches[0].pageY;
     }
     function move(e){
